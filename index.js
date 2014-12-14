@@ -2,7 +2,7 @@
 var util = require('util');
 var EventEmitter = require('events').EventEmitter;
 var myQ = require('myqnode').myQ;
-var debug = require('debug')('<%= _.slugify(connectorName) %>')
+var debug = require('debug')('meshblu-myq')
 
 var MESSAGE_SCHEMA = {
   type: 'object',
