@@ -1,0 +1,17 @@
+{
+  "name": "meshblu-myq",
+  "repository": "octoblu/meshblu-myq",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node command.js"
+  },
+  "dependencies": {
+    "debug": "^2.1.0",
+    "myqnode": "0.0.1",
+    "skynet": "^1.8.3"
+  },
+  "keywords": [
+    "meshblu-connector",
+    "gateblu"
+  ]
+}
