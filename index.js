@@ -1,8 +1,8 @@
 'use strict';
-var util = require('util');
+var util         = require('util');
 var EventEmitter = require('events').EventEmitter;
-var myQ = require('myqnode').myQ;
-var debug = require('debug')('meshblu-myq')
+var myQ          = require('myqnode').myQ;
+var debug        = require('debug')('meshblu-myq')
 
 var MESSAGE_SCHEMA = {
   type: 'object',
@@ -38,6 +38,7 @@ function Plugin(){
   this.optionsSchema = OPTIONS_SCHEMA;
   return this;
 }
+
 util.inherits(Plugin, EventEmitter);
 
 Plugin.prototype.onMessage = function(message){
@@ -46,20 +47,22 @@ Plugin.prototype.onMessage = function(message){
 };
 
 Plugin.prototype.onConfig = function(device){
-  this.setOptions(device.options||{});
+  this.setOptions(device.options || {});
 };
 
 Plugin.prototype.setOptions = function(options){
+  debug('setting options', options);
   this.options = options;
 };
 
 Plugin.prototype.updateMyQ = function(payload) {
   var self = this;
-
   var func = myQ.closeDoor;
+
   if(payload.open){
     func = myQ.openDoor;
   }
+
   debug('Updating ' + self.options.deviceId);
   func(self.options.userId, self.options.password, self.options.deviceId);
 };
